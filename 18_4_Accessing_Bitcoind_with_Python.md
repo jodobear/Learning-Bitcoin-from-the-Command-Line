@@ -47,7 +47,7 @@ We are going to install the `python-bitcoinrpc` library, like so:
 
 ## Build Your Connection
 
-We are now ready to start interacting with `boitcond`, but first we need to establish connection. Create a file called `btcrpc.py` and type the following:
+We are now ready to start interacting with `boitcoind`, but first we need to establish connection. Create a file called `btcrpc.py` and type the following:
 
 ```py
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
