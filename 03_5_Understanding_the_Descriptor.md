@@ -22,9 +22,7 @@ The fact that you can have a "whole sequence of children ... keys" reveals the f
 
 > :book: ***What is an HD Wallet?*** Most modern wallets are built on [BIP32: Hierarchical Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki). This is a hierarchical design where a single seed can be used to generate a whole sequence of keys. The entire wallet may then be restored from that seed, rather than requiring the restoring of every single private key.
 
-> :book: ***What is a Derivation Path?*** When you have hierarchical keys, you need to be able to define individual keys as descendents of a seed. For example `[0]` is the 0th key, `[0/1]` is the first son of the 0th key, `[1/0/1]` is the first grandson of the zeroth son of the 1st key. Some keys also contain a `'` after the number, to show they're hardened, which protects them from a specific attack that can be used to derive an `xprv` from an `xpub`. You don't need to worry about the specifics, other than the fact that those `'`s will cause you formatting troubles when working from the command line.
-
-> :information_source: **NOTE:** a derivation path defines a key, which means that a key represents a derivation path. They're equivalent. In the case of a descriptor, the derivation path lets `bitcoind` know where the key that follows in the descriptor came from!
+> :book ***What is a Derivation Path?*** When you have hierarchical keys, you need to be able to define individual keys as descendents of a seed. For example `[0]` is the 0th key, `[0/1]` is the first son of the 0th key, `[1/0/1]` is the first grandson of the zeroth son of the 1st key. Some keys also contain a `'` after the number, to show they're hardened, which protects them from a specific attack that can be used to derive an `xprv` from an `xpub`. You don't need to worry about the specifics, other than the fact that those `'`s will cause you formatting troubles when working from the command line.
 
 `xpubs` and `xprvs` proved insufficient when the types of public keys multiplied under the [SegWit expansion](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/master/04_6_Creating_a_Segwit_Transaction.md), thus the need for "output descriptors".
 
@@ -99,7 +97,7 @@ $ bitcoin-cli getdescriptorinfo "pkh([d6043800/0'/0'/18']03efdee34c0009fd175f3b2
   "hasprivatekeys": false
 }
 ```
-Besides giving you the checksum, this command also verifies the validity of the descriptor and provides useful information like whether a descriptor contains private keys.
+Besides giving you the checksum, this command also provides useful information like whether a descriptor contains private keys.
 
 One of the powers of a descriptor is being able to derive an address in a regular way. This is done with the `deriveaddresses` RPC.
 ```
@@ -110,9 +108,9 @@ $ bitcoin-cli deriveaddresses "pkh([d6043800/0'/0'/18']03efdee34c0009fd175f3b20b
 ```
 You'll note it loops back to the address we started with (as it should).
 
-## Import a Descriptor
+## Import a Desciptor
 
-But, the really important thing about a descriptor is that you can take it to another (remote) machine and import it. This is done with the `importmulti` RPC using the `desc` option:
+But, the really important thing about a descriptor is that you can take it to another machine and import it. This is done with the `importmulti` RPC using the `desc` option:
 ```
 remote$ bitcoin-cli importmulti '[{"desc": "pkh([d6043800/0'"'"'/0'"'"'/18'"'"']03efdee34c0009fd175f3b20b5e5a5517fd5d16746f2e635b44617adafeaebc388)#4ahsl9pk", "timestamp": "now", "watchonly": true}]'
 [
@@ -141,8 +139,6 @@ remote$ bitcoin-cli getaddressesbylabel ""
 Descriptors let you pass public keys and private keys among wallets, but more than that, they allow you to precisely and correctly to define addresses and to derive addresses of a lot of different sorts from a standardized description format.
 
 > :fire: ***What is the power of descriptors?*** Descriptors allow you to import and export seeds and keys. That's great if you want to move between different wallets. As a developer, they also allow you to build up the precise sort of addresses that you're interested in creating. For example, we use it in [FullyNoded 2](https://github.com/BlockchainCommons/FullyNoded-2/blob/master/Docs/How-it-works.md) to generate a multi-sig from three seeds. 
-
-We'll make real use of descriptors in [§7.3](07_3_Integrating_with_Hardware_Wallets.md), when we're importing addresses from a hardware wallet.
 
 ## What's Next?
 
