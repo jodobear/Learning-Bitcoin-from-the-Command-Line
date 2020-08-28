@@ -12,7 +12,9 @@ Replace our current scripts with Bitcoin Standup (which was based on those scrip
 3. <strike>Upgrade Bitcoin Standup Scripts to Bitcoin 0.20</strike> **6/16**
 4. <strike>Ensure Bitcoin Standup covers everything else in previous scripts</strike> **6/16**
 5. <strike>Rewrite the StackScript chapter</strike> **6/16**
-6. Rewrite the "by-hand" chapter to match Bitcoin Standup (Pending summer work)
+6. <strike>Rewrite the "by-hand" chapter to match Bitcoin Standup</strike> **7/27**
+   * <strike>Write New Appendix 1</strike> **7/27**
+   * <strike>Revise All Chapter Ordering for Cut §2.1</strike> **7/27**
 7. <strike>Reintroduce aliases after setup</strike> **6/19**
 8. <strike>Figure out what to do about the old `btcblock` on testnet, where there seems to be no CLI way to determine blockheight.</strike> **No Known Solution on Testnet**
 
@@ -28,22 +30,22 @@ Replace our current scripts with Bitcoin Standup (which was based on those scrip
       * <strike>Integrate older Curl Interlude</strike> **6/19**
    * <strike>Edit & Check Chapter 5</strike> **6/23**
    * <strike>Edit & Check Chapter 6</strike> **6/30**
+      * <strike>Update for change in importaddress</strike> **7/7**
    
 ## 3. Add BTCDEB Support
 
-10. Make all examples in [7.4](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/master/07_4_Testing_a_Bitcoin_Script.md) and possibly elsewhere use BTCDeb.
-   * Edit & Integrate Chapter 7
-   * Edit & Integrate Chapter 8
-   * Edit & Integrate Chapter 9
-   * Edit & Integrate Chapter 10
-   * Edit & Integrate Chapter 11
-
-Per @ChristopherA:
-
-> @kallewoof has written a better Bitcoin Script debugging tool at https://github.com/kallewoof/btcdeb — we should re-write chapter 7 to use it.
-
-`btcdeb -v` will now show you what BTC Core version it's based on in its minor version. As of now it's `0.2.19`, which is BTC Core 0.19.
-
+10. Update Scripting & Integrate `btcdeb`
+   * <strike>Edit & Integrate Chapter 9</strike> **7/15**
+      * <strike>Fix P2PKH Example</strike> **7/15**
+      * <strike>Write P2WPKH Chapter</strike> **7/15**
+   * <strike>Edit & Integrate Chapter 10</strike> **7/15, 7/21**
+      * <strike>Write P2WSH Chapter</strike> **7/21**
+   * <strike>Edit & Integrate Chapter 11</strike> **7/21**
+   * <strike>Edit & Integrate Chapter 12</strike> **7/21**
+   * <strike>Edit & Integrate Chapter 13</strike> **7/21**
+   * Turn off verbose info on btcdeb?
+   * Get sigs working right on btcdeb?
+   
 ## 4. Add New Concepts
 
 Add and document the following new concepts:
@@ -53,34 +55,61 @@ Add and document the following new concepts:
    * <strike>Do we still have to use "bitcoin-cli getnewaddress "" legacy" on CLI? If not, run back through chapters that use legacy in their examples, starting in 3.3</strike> **Gonna leave it for now. A future version might shift to P2SH-SegWit as default.**
    * <strike>Integrate discussions of SegWit into early parts of chapter 4.</strike> **6/23**
    * <strike>Write chapter 4.6</strike> **6/23**
-12. Add PSBT. Partially Signed Bitcoin Transactions are a powerful new interchange format that should be fully included in our discussions of multi-sigs and escrows (which instead fell back on older methodologies in v1.0).
+12. <strike>Add PSBT. Partially Signed Bitcoin Transactions are a powerful new interchange format that should be fully included in our discussions of multi-sigs and escrows (which instead fell back on older methodologies in v1.0).</strike> **7/2**, **7/7**, **7/10**
    * <strike>Research PSBTs</strike> **7/2**
    * <strike>Update Outlines</strike> **7/2**
-   * Write 6.6: Creating a PSBT
-   * Write 6.7: Using a PSBT
-13. Add Wallet Updates.
+   * <strike>Write 7.1: Creating a PSBT</strike> **7/7**
+      * <strike>Create Illustrations for 7.1</strike> **7/7**
+   * <strike>Write 7.2: Using a PSBT</strike> **7/7**, **7/10**
+      * <strike>Multisigs</strike> **7/7**
+         * <strike>Redo with correct math</strike> **7/10**
+      * <strike>Fund Pooling</strike> **7/10**
+      * <strike>CoinJoins</strike> **7/10**
+      
+13. <strike>Add Wallet Updates.</strike> **6/30**, **7/2**, **7/7**
    * <strike>Bitcoin Descriptors</strike> **6/30**
       * <strike>Show what a SegWit descriptor looks like</strike> **7/2**
       * <strike>Show what a multi-sig descriptor looks like</strike> **7/2**
-      * Revise based on comments
+      * <strike>Revise based on comments</strike> **7/7**
    * <strike>Key Ordering (sortedmulti)</strike> **7/2** **Partially Supported in 0.20**
-14. Consider HWI. We need to investigate the Hardware Wallet Interface, which uses PSBTs with hardware wallets, and see if it's something we should include (and if our readers want us to).
+14. <strike>Consider HWI.</strike> **7/14**
+  * <strike>Write 7.3: Using HWI</strike> **7/14**
+  * <strike>Edit All of Chapter 6-8</strike> **7/14**
 15. Consider splitting up Chapter 6 (definitely if we get an HWI chapter)
    * <strike>Break apart Chapter 6</strike> **7/2**
-   * Rewrite all section links in early chapters (1-5, 6, 8)
-   * Update Script Chapters
-   * Update Tor Chapter
+   * <strike>Rewrite all section links in early chapters (1-5, 6, 8)</strike> **7/7**
+   * <strike>Update Script Chapters</strike> **7/15**
+   * <strike>Update Tor Chapter</strike> **7/22**
    * Update Programming Chapters
    
 ## 5. Finish Later Chapters
 
-16. Edit & Intregtrate Tor Chapter. 
-17. Write Lightning Chapters. We'd like to parallel the CLI introduction to Bitcoin with a similar CLI introduction to Lightning.
-18. Edit & Integrate all "C" work
-19. Edit & Integrate all "Other Languages" work
-20. Edit & Integrate Appendices work
+16. <strike>Edit & Integrate Tor Chapter. </strike> **7/22**
+17. <strike>Edit & Integrate all "C" work</strike> **8/5** - **8/26**
+   * <strike>Edit & Update Chapter 15</strike> **8/5**
+   * <strike>Write the Libwally section</strike> **8/5** - **8/26**
+      * <strike>16.1: Intro</strike> **8/5**
+      * <strike>16.2: BIP39</strike> **8/11**
+      * <strike>16.3: BIP32</strike> **8/11**
+      * <strike>16.4: PSBTs</strike> **8/12**
+      * <strike>16.5: Scripts</strike> **8/12**
+      * <strike>16.6: Other Functions</strike> **8/18**
+      * <strike>16.7: Integration</strike> **8/25**, **8/26**
+18. Edit & Integrate all "Other Languages" work
+   * Write Swift Chapter
+      * Setup Swift Environment
+      * Look at Wallets
+      * Create Transaction
+19. <strike>Edit & Integrate Appendices work</strike> **7/27**, **8/4**
+   * <strike>Edit & Integrate A2: Compiling</strike> **7/27**
+   * <strike>Edit & Integrate A3: RegTest</strike> **8/4**
+20. Edit & Integrate Lightning Chapters
 21. Write or request Lightning/C chapter
 
 ## 6. Finalize Book
 
-22. Re-edit everything
+22. Take out warnings for all old chapters
+23. Add new first chapter, indicating places to start for people of different levels
+   * Know CL? Have a node? Need to read the new stuff? Skip Lightning?
+   * Decide where to place current first chapter in relation to that (before? after? glossary?)
+24. Re-edit everything
